@@ -1,0 +1,49 @@
+/*Problem B. Welcome To Fast!
+Time limit 1000 ms
+Mem limit 262144 kB
+The average life of a FASTian is always on the run! With the mid-2 exams just completed,
+time flies so quickly that it's already the day before the Final Examinations. As a
+procrastinator who studies the night before, you find yourself calculating the limited
+amount of time left until the exams start.
+You know that currently, the clock shows h hours and m minutes, where 0 ≤ h < 24 and
+0 ≤ m < 60 . We use the 24-hour time format!
+Your task is to determine how many minutes remain before the exams begin at 0 hours and
+0 minutes.
+You need to answer t independent test cases.
+
+The first line of the input contains one integer t ( 1 ≤ t ≤ 1439 ) — the number of test
+cases.
+Each of the following t lines describes a specific time case. The i-th line contains the current
+time given as two integers h and m ( 0 ≤ h < 24 , 0 ≤ m < 60 ). It is guaranteed that this
+time is not midnight, meaning that the following two conditions cannot occur
+simultaneously: h = 0 and m = 0 . Additionally, both h and m are given without any
+leading zeros.
+For each test case, print the answer on it — the number of minutes before the disaster.*/
+//1 hr=60mins so m=h*60;
+#include <stdio.h>
+int main(){
+    int t; //test cases
+    int tm; //total mins
+    scanf("%d",&t);
+    int m[t]; //mins
+    int h[t]; //hrs
+    // if (t<1 || t>1439){
+    //     printf("invalid");
+    // }
+    for (int i=0;i<t;i++){
+        scanf("%d %d", &h[i],&m[i]);
+    }
+    for (int i=0;i<t;i++){
+        if (m[i]==0){
+            tm=(((24-h[i])*60)-m[i]);
+        }
+        else if (h[i]==0){
+            tm=((24*60)-m[i]);
+        }
+        else if (h[i]==23){
+            tm=(60-m[i]);
+        }
+        else tm=(((24-h[i])*60)-(m[i]));
+        printf("%d \n",tm);
+    }
+}
