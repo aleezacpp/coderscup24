@@ -1,0 +1,44 @@
+/*Problem A. Intense Contest
+
+Problem Statement
+During ACM's Developer's Day Competitive Programming contest, Warun participated and
+worked tirelessly on several problems. The contest was so intense that he lost track of all his
+submissions, and by the end, he was completely exhausted and unable to count them
+himself.
+Now, as his friend, it is your job to help him count his submissions.
+There are N test cases in total. For each test case i (1 <= i <= N), you are given a string S[i]
+that represents the verdict for that test case.
+Your task is to determine the number of test cases that have each of the following verdicts:
+AC , WA , TLE , and RE .
+Refer to the Output section for the expected output format.*/
+#include <stdio.h>
+#include <string.h>
+int main(){
+    int n; //size of input
+    int c=0;
+    int w=0;
+    int t=0;
+    int r=0;
+    scanf("%d",&n);
+    char str[n][4];
+    for (int i=0;i<n;i++){
+        
+            scanf("%s",str[i]);
+    }
+    for (int i=0;i<n;i++){
+            if (strcmp(str[i],"AC")==0){
+                c++;
+            }
+            else if (strcmp(str[i],"WA")==0){
+                w++;
+            }
+            else if (strcmp(str[i],"TLE")==0){
+                t++;
+            }
+            else if (strcmp(str[i],"RE")==0){
+                r++;
+            }
+        }
+    
+    printf("AC x %d \n WA x %d \n TLE x %d \n RE x %d \n",c,w,t,r);
+}
