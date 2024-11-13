@@ -1,0 +1,57 @@
+/*Problem C. Dead Linguistics Society
+Time limit 2000 ms
+Mem limit 1048576 kB
+Problem Statement
+You have been recruited by the mysterious Linguistics Society, where members are
+obsessed with deciphering unique patterns in texts. One of the patterns they study is called
+a hard-to-read string. According to the society's rules, a string is deemed hard-to-read
+when:
+Characters in odd positions (such as the 1st, 3rd, 5th, ... from the beginning) are all
+lowercase English letters.
+Characters in even positions (such as the 2nd, 4th, 6th, ... from the beginning) are all
+uppercase English letters.
+Your task is to determine whether a given string S adheres to the society's definition of a
+hard-to-read string.
+
+Constraints
+consists of uppercase and lowercase English letters.
+The length of is between and (inclusive).*/
+#include <stdio.h>
+#include <string.h>
+int main(){
+    //user inputs a string, at odd indexes we need lowercase letters, at even indexes we need uppercase
+    //is this char by char reading?
+    //is tis a 2d array or naah
+    //arr[i] will be one row so 1 word itself
+    //but we need to check if chars are cap or not
+    int n; //array length
+    scanf("%d",&n);
+    char S[1000]; //string wont run to thousand?? obv lol
+    scanf("%s",S);
+    //i+2 if i starts from 0?
+    //j+1 and array starts from 0?
+    int ceven=0;
+    int codd=0;
+    for (int i=0;i<n;i=i+2){
+        if (S[i]>='A'&&S[i]<='Z'){
+            ceven++;
+        }
+    }
+    for (int i=1;i<n;i=i+2){
+        if (S[i]>='a' && S[i]<='z'){
+            codd++;
+        }
+    }
+    if (n%2==0){
+        if (ceven==(n/2)&&codd==(n/2)){
+            printf("yes");
+        }
+        else printf("no");
+    }
+    else if (n%2!=0){
+        if (ceven==(n/2+1)&&codd==(n/2)){
+            printf("yes");
+        }
+        else printf("no");
+    }
+}
